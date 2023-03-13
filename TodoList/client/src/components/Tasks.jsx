@@ -1,7 +1,10 @@
 import React from 'react'
 import Button from './Button'
+import {getAllTasks} from '../helpers/Requests'
+import { useState } from 'react'
 
 function Tasks() {
+
   return (
     <div class="flex mb-4 items-center">
     <p class="w-full text-grey-darkest">Add another component to Tailwind Components</p>
