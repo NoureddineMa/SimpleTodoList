@@ -1,5 +1,4 @@
-const { model } = require('mongoose');
-const Task = require('./models/TasksModel.js')
+const Task = require('../models/TasksModel')
 
 /** 
 Desc POST SINGLE TASK 
@@ -12,8 +11,8 @@ const CreateTask = async (req,res) => {
     data ? res.status(200).json({message: "Task Added Succefully"}) : res.status(400).json({message: "Error"})
 }
 /** 
-Desc POST SINGLE TASK 
-Route PORT : http://localhost:4000/api/deletetask
+Desc POST SINGLE TASK  
+Route PORT : http://localhost:4000/api/deletetask/:id
 */ 
 const DeleteOneTask = async (req,res) => {
     const _id = req.params.id;
@@ -22,7 +21,7 @@ const DeleteOneTask = async (req,res) => {
 }
 /** 
 Desc POST SINGLE TASK 
-Route PORT : http://localhost:4000/api/deletetask
+Route PORT : http://localhost:4000/api/getalltasks
 */ 
 const GetAllTasks = async (req,res) => {
     const getAll = await Task.find({})
