@@ -6,7 +6,12 @@ Route PORT : http://localhost:4000/api/posttask
 */ 
 const CreateTask = async (req,res) => {
     const { task } = req.body;
-    task ? res.status(200) : res.status(400).json({message: "please fill all fields"})
+    if(!task){
+        res.json({message: "please fill all fields"})
+        .status(400)
+        return
+    } 
+    // task ? res.status(200) : res.status(400).json({message: "please fill all fields"}) 
     const data = await Task.create({ task })
     data ? res.status(200).json({message: "Task Added Succefully"}) : res.status(400).json({message: "Error"})
 }
